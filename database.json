@@ -1,0 +1,10 @@
+{
+  "users": [
+    { "id": "1", "email": "admin@event.com", "password": "password123", "role": "admin", "name": "Super Admin" },
+    { "id": "2", "email": "user@event.com", "password": "password123", "role": "user", "name": "Rizky Ramadhan" }
+  ],
+  "rundowns": [
+    { "id": "1", "title": "Wedding Sarah & Kevin", "category": "Wedding", "items": 12 },
+    { "id": "2", "title": "Product Launch Apple", "category": "Tech", "items": 25 }
+  ]
+}

@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-surface: #fbf9f8;
+  --color-surface-dim: #dcd9d9;
+  --color-surface-bright: #fbf9f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f3f2;
+  --color-surface-container: #f0eded;
+  --color-surface-container-high: #eae8e7;
+  --color-surface-container-highest: #e4e2e1;
+  --color-on-surface: #1b1c1c;
+  --color-on-surface-variant: #43474e;
+  --color-inverse-surface: #303030;
+  --color-inverse-on-surface: #f3f0f0;
+  --color-outline: #74777f;
+  --color-outline-variant: #c4c6cf;
+  --color-surface-tint: #476083;
+  --color-primary: #000613;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #001f3f;
+  --color-on-primary-container: #6f88ad;
+  --color-inverse-primary: #afc8f0;
+  --color-secondary: #5d5f5f;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #dcdddd;
+  --color-on-secondary-container: #5f6161;
+  --color-tertiary: #110200;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #391303;
+  --color-on-tertiary-container: #b5785f;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-success: #10b981;
+  --color-on-success: #ffffff;
+  --color-primary-fixed: #d4e3ff;
+  --color-primary-fixed-dim: #afc8f0;
+  --color-on-primary-fixed: #001c3a;
+  --color-on-primary-fixed-variant: #2f486a;
+  --color-secondary-fixed: #e2e2e2;
+  --color-secondary-fixed-dim: #c6c6c7;
+  --color-on-secondary-fixed: #1a1c1c;
+  --color-on-secondary-fixed-variant: #454747;
+  --color-tertiary-fixed: #ffdbce;
+  --color-tertiary-fixed-dim: #fdb69a;
+  --color-on-tertiary-fixed: #351002;
+  --color-on-tertiary-fixed-variant: #6b3a25;
+
+  /* Custom Admin Theme */
+  --color-admin-primary: #1e293b;
+  --color-admin-accent: #6366f1;
+  --color-admin-surface: #0f172a;
+  
+  /* Custom User Theme */
+  --color-user-primary: #0f766e;
+  --color-user-accent: #14b8a6;
+  --color-user-surface: #f0fdfa;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans transition-colors duration-300;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 1cm;
+  }
+  
+  body * {
+    visibility: hidden;
+    background: white !important;
+  }
+  
+  /* Show only the editor content */
+  .max-w-5xl, .max-w-5xl * {
+    visibility: visible;
+  }
+  
+  .max-w-5xl {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Formal Table Styling */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 10px !important;
+    border: 2px solid black !important;
+  }
+
+  th {
+    background-color: #b4c7e7 !important; /* Warna biru sesuai referensi */
+    color: black !important;
+    border: 1px solid black !important;
+    padding: 8px 4px !important;
+    font-size: 10pt !important;
+    text-align: center !important;
+    font-weight: bold !important;
+  }
+
+  td {
+    border: 1px solid black !important;
+    padding: 8px 6px !important;
+    font-size: 9pt !important;
+    color: black !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+  }
+
+  /* Specific column alignment */
+  td:nth-child(3), td:nth-child(4) {
+    text-align: left !important; /* Judul Kegiatan & Tempat biasanya rata kiri */
+  }
+
+  /* Hide UI elements */
+  button, 
+  .grip-handle, 
+  .relative.group, 
+  header, 
+  aside, 
+  .shrink-0,
+  .no-print,
+  [role="tablist"] {
+    display: none !important;
+  }
+
+  /* Document Header */
+  .print-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+  }
+
+  .print-header h1 {
+    font-size: 18pt !important;
+    font-weight: black !important;
+    margin: 0;
+    color: black !important;
+  }
+
+  /* Force hidden print table to show */
+  table.hidden {
+    display: table !important;
+    visibility: visible !important;
+  }
+}
